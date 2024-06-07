@@ -13,7 +13,7 @@ export interface MoonLoaderProps {
 
 const props = withDefaults(defineProps<MoonLoaderProps>(), {
   color: '#42b883',
-  size: 60,
+  size: 56,
   radius: '100%',
   speed: 1,
 })

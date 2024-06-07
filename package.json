@@ -16,7 +16,8 @@
   "scripts": {
     "build": "rimraf ./dist && vite build && vue-tsc --declaration --emitDeclarationOnly",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
   },
   "peerDependencies": {
     "vue": ">= 3.4.27"
@@ -24,6 +25,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",
     "@chromatic-com/storybook": "^1.5.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@storybook/addon-essentials": "^8.1.6",
     "@storybook/addon-interactions": "^8.1.6",
     "@storybook/addon-links": "^8.1.6",
@@ -35,6 +38,7 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "clsx": "^2.1.1",
     "eslint": "^9.4.0",
+    "husky": "^9.0.11",
     "rimraf": "^5.0.7",
     "storybook": "^8.1.6",
     "tailwind-merge": "^2.3.0",

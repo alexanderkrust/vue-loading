@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>
 
 export const MoonLoader: Story = {
   args: {
-    color: '#000',
+    color: '#42b883',
     size: 28,
     speed: 1,
   },
