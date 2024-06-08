@@ -17,7 +17,9 @@
     "build": "rimraf ./dist && vite build && vue-tsc --declaration --emitDeclarationOnly",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest watch"
   },
   "peerDependencies": {
     "vue": ">= 3.4.27"
@@ -34,16 +36,21 @@
     "@storybook/test": "^8.1.6",
     "@storybook/vue3": "^8.1.6",
     "@storybook/vue3-vite": "^8.1.6",
+    "@testing-library/vue": "^8.1.0",
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
+    "@vitest/coverage-v8": "^1.6.0",
     "clsx": "^2.1.1",
     "eslint": "^9.4.0",
+    "happy-dom": "^14.12.0",
     "husky": "^9.0.11",
+    "radix-vue": "^1.8.3",
     "rimraf": "^5.0.7",
     "storybook": "^8.1.6",
     "tailwind-merge": "^2.3.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.12",
+    "vitest": "^1.6.0",
     "vue-tsc": "^2.0.19"
   }
 }

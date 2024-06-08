@@ -1,21 +1,22 @@
 <script lang="ts" setup>
-import type { HTMLAttributes, StyleValue } from 'vue'
-import { computed, defineProps } from 'vue'
+import type { StyleValue } from 'vue'
+import { computed } from 'vue'
 import { cn } from './utils/cn'
+import type { LoaderPrimitiveProps } from './types'
+import { BASE_PRIMARY_COLOR, BASE_SIZE, BASE_SPEED } from './const'
 
-export interface MoonLoaderProps {
-  color: string
-  size: number
-  class?: HTMLAttributes['class']
+export interface MoonLoaderProps extends LoaderPrimitiveProps {
+  color?: string
+  size?: number
   radius?: string | number
-  speed: number
+  speed?: number
 }
 
 const props = withDefaults(defineProps<MoonLoaderProps>(), {
-  color: '#42b883',
-  size: 56,
+  color: BASE_PRIMARY_COLOR,
+  size: BASE_SIZE,
   radius: '100%',
-  speed: 1,
+  speed: BASE_SPEED,
 })
 
 const moonSize = computed(() => props.size / 7)
@@ -59,7 +60,7 @@ const circleStyles = computed(() => {
 </script>
 
 <template>
-  <span
+  <div
     role="alert" aria-busy="true"
     :class="cn('v-spinner moon-animation', props.class)"
     :style="wrapperStyles"
@@ -72,7 +73,7 @@ const circleStyles = computed(() => {
       class="circle"
       :style="circleStyles"
     />
-  </span>
+  </div>
 </template>
 
 <style>

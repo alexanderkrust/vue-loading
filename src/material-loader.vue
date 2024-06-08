@@ -1,16 +1,18 @@
 <script lang="ts" setup>
-import { type HTMLAttributes, computed } from 'vue'
+import { computed } from 'vue'
 import { cn } from './utils/cn'
+import LoaderPrimitive from './loader-primitive.vue'
+import type { LoaderPrimitiveProps } from './types'
+import { BASE_PRIMARY_COLOR, BASE_SIZE } from './const'
 
-export interface MaterialLoaderProps {
-  color: string
-  size: number
-  class?: HTMLAttributes['class']
+export interface MaterialLoaderProps extends LoaderPrimitiveProps {
+  color?: string
+  size?: number
 }
 
 const props = withDefaults(defineProps<MaterialLoaderProps>(), {
-  color: '#42b883',
-  size: 56,
+  color: BASE_PRIMARY_COLOR,
+  size: BASE_SIZE,
 })
 
 const borderSize = computed(() => props.size / 7)
@@ -28,7 +30,7 @@ const baseStyles = computed(() => {
 </script>
 
 <template>
-  <div
+  <LoaderPrimitive
     :class="cn('v-material-loader')"
     :style="baseStyles"
   />

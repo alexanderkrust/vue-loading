@@ -1,18 +1,20 @@
 <script lang="ts" setup>
+import { BASE_PRIMARY_COLOR, BASE_SECONDARY_COLOR, BASE_SIZE } from './const'
+import LoaderPrimitive from './loader-primitive.vue'
+import type { LoaderPrimitiveProps } from './types'
 import { cn } from './utils/cn'
-import { type HTMLAttributes, computed } from 'vue'
+import { computed } from 'vue'
 
-export interface BasicLoaderProps {
-  primaryColor: string
-  secondaryColor: string
-  size: number
-  class?: HTMLAttributes['class']
+export interface BasicLoaderProps extends LoaderPrimitiveProps {
+  primaryColor?: string
+  secondaryColor?: string
+  size?: number
 }
 
 const props = withDefaults(defineProps<BasicLoaderProps>(), {
-  primaryColor: '#42b883',
-  secondaryColor: '#dbdcef',
-  size: 56,
+  primaryColor: BASE_PRIMARY_COLOR,
+  secondaryColor: BASE_SECONDARY_COLOR,
+  size: BASE_SIZE,
 })
 
 const borderSize = computed(() => props.size / 7)
@@ -28,7 +30,7 @@ const baseStyles = computed(() => ({
 </script>
 
 <template>
-  <div
+  <LoaderPrimitive
     role="alert" aria-busy="true"
     :class="cn('v-basic-animation', props.class)"
     :style="baseStyles"
