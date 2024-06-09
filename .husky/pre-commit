@@ -1,1 +1,2 @@
+cd packages/vue-loading
 pnpm build

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import BasicLoaderComp from '../src/basic-loader.vue'
+import { BasicLoader as BasicLoaderComp } from 'vue-loading'
 
 const meta = {
   title: 'BasicLoader',

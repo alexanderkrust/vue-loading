@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import MoonLoaderComp from '../src/moon-loader.vue'
+import { MoonLoader as MoonLoaderComp } from 'vue-loading'
 
 const meta = {
   title: 'MoonLoader',

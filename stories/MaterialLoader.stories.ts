@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import MaterialLoaderComp from '../src/material-loader.vue'
+import { MaterialLoader as MaterialLoaderComp } from 'vue-loading'
 
 const meta = {
   title: 'MaterialLoader',
