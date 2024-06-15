@@ -2,7 +2,12 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
-    ignores: ['*.js'],
+    stylistic: {
+      indent: 2, // 4, or 'tab'
+      quotes: 'single', // or 'double'
+    },
+    typescript: true,
+    vue: true,
   },
   {
     rules: {
@@ -18,14 +23,6 @@ export default antfu(
       'unicorn/prefer-dom-node-text-content': 'off',
       'unicorn/prefer-number-properties': 'off',
       'regexp/no-super-linear-backtracking': 'off',
-    },
-  },
-  {
-    files: ['*.story.vue'],
-    rules: {
-      'no-console': 'off',
-      'no-alert': 'off',
-      'unused-imports/no-unused-vars': 'off',
     },
   },
 )
