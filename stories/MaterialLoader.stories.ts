@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { MaterialLoader as MaterialLoaderComp } from 'vue-loading'
+import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const'
 
 const meta = {
   title: 'MaterialLoader',
   component: MaterialLoaderComp,
   argTypes: {
+    class: { control: 'text' },
+    size: { control: 'number' },
+    color: { control: 'color' },
   },
 
 } satisfies Meta<typeof MaterialLoaderComp>
@@ -14,7 +18,8 @@ type Story = StoryObj<typeof meta>
 
 export const MaterialLoader: Story = {
   args: {
-    size: 28,
-    color: '#42b883',
+    class: '',
+    size: BASE_SIZE,
+    color: BASE_PRIMARY_COLOR,
   },
 }

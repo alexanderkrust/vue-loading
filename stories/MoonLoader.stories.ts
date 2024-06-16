@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { MoonLoader as MoonLoaderComp } from 'vue-loading'
+import { BASE_PRIMARY_COLOR, BASE_SIZE, BASE_SPEED } from '../packages/vue-loading/src/const'
 
 const meta = {
   title: 'MoonLoader',
   component: MoonLoaderComp,
   argTypes: {
-
+    class: { control: 'text' },
+    size: { control: 'number' },
+    color: { control: 'color' },
+    speed: { control: 'number' },
   },
 
 } satisfies Meta<typeof MoonLoaderComp>
@@ -15,8 +19,9 @@ type Story = StoryObj<typeof meta>
 
 export const MoonLoader: Story = {
   args: {
-    color: '#42b883',
-    size: 28,
-    speed: 1,
+    class: '',
+    size: BASE_SIZE,
+    color: BASE_PRIMARY_COLOR,
+    speed: BASE_SPEED,
   },
 }
