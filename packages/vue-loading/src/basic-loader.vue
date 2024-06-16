@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<BasicLoaderProps>(), {
 
 const borderSize = computed(() => Math.floor(props.size / 7))
 const css_border = computed(() => `${borderSize.value}px`)
-const css_width = computed(() => `${`${Math.floor(props.size + borderSize.value * 2)}px`}`)
+const css_width = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
 
 const { primaryColor, secondaryColor } = props
 </script>

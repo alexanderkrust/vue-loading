@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<MaterialLoaderProps>(), {
 
 const borderSize = computed(() => Math.floor(props.size / 7))
 const border = computed(() => `${borderSize.value}px`)
-const width = computed(() => `${`${Math.floor(props.size + borderSize.value * 2)}px`}`)
+const css_width = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
 
 const { color } = props
 </script>
@@ -35,8 +35,8 @@ const { color } = props
 
 <style>
 .vl-material-loader {
-  width: v-bind(width);
-  height: v-bind(width);
+  width: v-bind(css_width);
+  height: v-bind(css_width);
   border-color: v-bind(color);
   border-width: v-bind(border);
   border-style: solid;
