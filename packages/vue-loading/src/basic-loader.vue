@@ -1,6 +1,5 @@
 <script lang="ts">
 import type { LoaderPrimitiveProps } from './types'
-import type { StyleValue } from 'vue'
 
 export interface BasicLoaderProps extends LoaderPrimitiveProps {
   primaryColor?: string
@@ -22,46 +21,45 @@ const props = withDefaults(defineProps<BasicLoaderProps>(), {
 })
 
 const borderSize = computed(() => Math.floor(props.size / 7))
+const css_border = computed(() => `${borderSize.value}px`)
+const css_width = computed(() => `${`${Math.floor(props.size + borderSize.value * 2)}px`}`)
 
-const baseStyles = computed<StyleValue>(() => ({
-  width: `${`${props.size + borderSize.value * 2}px`}`,
-  height: `${`${props.size + borderSize.value * 2}px`}`,
-  borderRadius: '50%',
-  border: `${borderSize.value}px solid`,
-  borderColor: props.secondaryColor,
-  borderRightColor: props.primaryColor,
-}))
+const { primaryColor, secondaryColor } = props
 </script>
 
 <template>
   <LoaderPrimitive
     role="progress" aria-busy="true"
     :class="cn('vl-basic-loader', $props.class as string)"
-    :style="[baseStyles, $props.style as Record<string, string>]"
+    :style="$props.style"
   />
 </template>
 
 <style>
-.vl-basic-loader
-{
-    transform-origin: center;
-    -webkit-animation: vl-basic-rotation 0.6s 0s infinite linear;
-            animation: vl-basic-rotation 0.6s 0s infinite linear;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+.vl-basic-loader {
+  width: v-bind(css_width);
+  height: v-bind(css_width);
+  border-radius: 50%;
+  border-color: v-bind(secondaryColor);
+  border-right-color: v-bind(primaryColor);
+  border-width: v-bind(css_border);
+  border-style: solid;
+  transform-origin: center;
+  -webkit-animation: vl-basic-rotation 0.6s 0s infinite linear;
+          animation: vl-basic-rotation 0.6s 0s infinite linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes vl-basic-rotation
-{
-    to {
-      transform: rotate(1turn);
-   }
+@-webkit-keyframes vl-basic-rotation {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
-@keyframes vl-basic-rotation
-{
-    to {
-      transform: rotate(1turn);
-   }
+@keyframes vl-basic-rotation {
+  to {
+    transform: rotate(1turn);
+  }
 }
 </style>

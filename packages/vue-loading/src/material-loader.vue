@@ -19,27 +19,27 @@ const props = withDefaults(defineProps<MaterialLoaderProps>(), {
 })
 
 const borderSize = computed(() => Math.floor(props.size / 7))
+const border = computed(() => `${borderSize.value}px`)
+const width = computed(() => `${`${Math.floor(props.size + borderSize.value * 2)}px`}`)
 
-const baseStyles = computed(() => {
-  return {
-    width: `${`${props.size + borderSize.value * 2}px`}`,
-    height: `${`${props.size + borderSize.value * 2}px`}`,
-    border: `${borderSize.value}px solid`,
-    borderColor: props.color,
-  }
-})
+const { color } = props
 </script>
 
 <template>
   <LoaderPrimitive
     :class="cn('vl-material-loader', $props.class as string)"
-    :style="[baseStyles, $props.style as Record<string, string>]"
+    :style="$props.style"
     role="progress" aria-busy="true"
   />
 </template>
 
 <style>
 .vl-material-loader {
+  width: v-bind(width);
+  height: v-bind(width);
+  border-color: v-bind(color);
+  border-width: v-bind(border);
+  border-style: solid;
   border-radius: 50%;
   animation: vl-path-animation 0.8s infinite linear alternate, vl-rotation-animation 1.6s infinite linear;
   -webkit-animation: vl-path-animation 0.8s infinite linear alternate, vl-rotation-animation 1.6s infinite linear;
