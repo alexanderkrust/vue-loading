@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    cssCodeSplit: true,
+    cssTarget: 'esnext',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'vue-loading',
@@ -21,10 +21,10 @@ export default defineConfig({
     },
   },
   test: {
-    // enable jest-like global test APIs
     globals: true,
-    // simulate DOM with happy-dom
-    // (requires installing happy-dom as a peer dependency)
     environment: 'happy-dom',
+    css: {
+      include: /__tests+/,
+    },
   },
 })

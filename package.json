@@ -7,6 +7,7 @@
   "keywords": [],
   "scripts": {
     "build:package": "cd packages/vue-loading && pnpm build",
+    "test:package": "cd packages/vue-loading && pnpm test",
     "storybook": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"storybook dev -p 6006\"",
     "docs:dev": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
     "build-storybook": "pnpm build:package && storybook build",
@@ -30,6 +31,7 @@
     "vue-loading": "workspace:*"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^3.4.4"
   }
 }

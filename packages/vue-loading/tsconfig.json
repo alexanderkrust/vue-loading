@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["./src/**/*.vue", "./src/**/*.ts", "index.ts"],
+  "include": ["./src/**/*.vue", "./src/**/*.ts", "index.ts", "__tests__/**/*"],
   "exclude": ["node_modules", "**/__tests__"]
 }
