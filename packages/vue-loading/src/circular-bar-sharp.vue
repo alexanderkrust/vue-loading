@@ -17,8 +17,8 @@ const props = withDefaults(defineProps<CirularBarSharp>(), {
   size: BASE_SIZE,
 })
 
-const borderSize = computed(() => Math.floor(props.size / 7))
-const size = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
+const css_size = computed(() => `${`${props.size}px`}`)
+const { color } = props
 </script>
 
 <template>
@@ -33,9 +33,9 @@ const size = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
   .vl-circular-bar-sharp {
     display: inline-block;
     position: relative;
-    width: v-bind(size);
-    height: v-bind(size);
-    color: var(--color);
+    width: v-bind(css_size);
+    height: v-bind(css_size);
+    color: var(color);
     user-select: none;
   }
 

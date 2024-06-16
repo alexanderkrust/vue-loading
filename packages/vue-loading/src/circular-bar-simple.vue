@@ -17,8 +17,8 @@ const props = withDefaults(defineProps<CircularBarSimple>(), {
   size: BASE_SIZE,
 })
 
-const borderSize = computed(() => Math.floor(props.size / 7))
-const size = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
+const size = computed(() => `${`${props.size}px`}`)
+const { color } = props
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const size = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
   position: relative;
   width: v-bind(size);
   height: v-bind(size);
-  color: var(--color);
+  color: v-bind(color);
   user-select: none;
 }
 
