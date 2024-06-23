@@ -1,14 +1,16 @@
-name: Test package
+name: Test package on chrome
 on:
   push:
     branches:
       - main
     paths:
       - 'packages/**'
+      - 'test/**'
 
   pull_request:
     paths:
       - 'packages/**'
+      - 'test/**'
 
 jobs:
   test:
@@ -44,5 +46,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build package
-        run: pnpm test:package
+      - name: Test package
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          command: pnpm test:package
+          browser: chrome
