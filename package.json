@@ -9,9 +9,9 @@
     "build:package": "cd packages/vue-loading && pnpm build",
     "test:package": "cd test && pnpm test:unit",
     "build:docs": "pnpm build:package && cd docs && pnpm build",
+    "docs:dev": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
     "test:components:watch": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"pnpm test:package\"",
     "storybook": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"storybook dev -p 6006\"",
-    "docs:dev": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
     "build-storybook": "pnpm build:package && storybook build",
     "prepare": "husky"
   },
