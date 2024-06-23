@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<BasicLoaderProps>(), {
   size: BASE_SIZE,
 })
 
-const borderSize = computed(() => Math.floor(props.size / 7))
+const borderSize = computed(() => Math.floor(props.size / 8))
 const css_border = computed(() => `${borderSize.value}px`)
 const css_width = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
 
@@ -31,7 +31,6 @@ const { primaryColor, secondaryColor } = props
   <LoaderPrimitive
     role="progress" aria-busy="true"
     :class="cn('vl-basic-loader', $props.class as string)"
-    :style="$props.style"
   />
 </template>
 

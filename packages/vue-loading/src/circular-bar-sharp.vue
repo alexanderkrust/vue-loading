@@ -35,7 +35,7 @@ const { color } = props
     position: relative;
     width: v-bind(css_size);
     height: v-bind(css_size);
-    color: var(color);
+    color: v-bind(color);
     user-select: none;
   }
 

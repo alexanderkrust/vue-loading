@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<MoonLoaderProps>(), {
   speed: BASE_SPEED,
 })
 
-const moonSize = computed(() => Math.floor(props.size / 7))
+const moonSize = computed(() => Math.floor(props.size / 8))
 
 const css_width = computed(() => `${`${Math.floor(props.size + moonSize.value * 2)}px`}`)
 const css_animation_speed = computed(() => `${0.6 / props.speed}s`)
@@ -52,7 +52,7 @@ const { color } = props
 .vl-moon-spinner .vl-moon-ball {
   width: v-bind(css_moonSize);
   height: v-bind(css_moonSize);
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: v-bind(color);
   opacity: 0.8;
   position: absolute;
@@ -64,7 +64,7 @@ const { color } = props
 .vl-moon-spinner .vl-moon-circle {
   width: v-bind(css_size);
   height: v-bind(css_size);
-  border-radius: 100%;
+  border-radius: 50%;
   border: v-bind(css_border);
   opacity: 0.1;
   box-sizing: content-box;

@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<MaterialLoaderProps>(), {
   size: BASE_SIZE,
 })
 
-const borderSize = computed(() => Math.floor(props.size / 7))
+const borderSize = computed(() => Math.floor(props.size / 8))
 const border = computed(() => `${borderSize.value}px`)
 const css_width = computed(() => `${`${props.size + borderSize.value * 2}px`}`)
 
