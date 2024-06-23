@@ -1,5 +1,7 @@
 name: Test package on chrome
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - main
