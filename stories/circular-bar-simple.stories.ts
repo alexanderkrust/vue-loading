@@ -4,6 +4,7 @@ import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const
 
 const meta = {
   title: 'CircularBarSimple',
+  // @ts-ignore
   component: CircularBarSimpleComp,
   argTypes: {
     class: { control: 'text' },
@@ -19,7 +20,7 @@ type Story = StoryObj<typeof meta>
 export const CircularBarSimple: Story = {
   args: {
     class: '',
-    size: BASE_SIZE,
+    size: 36,
     color: BASE_PRIMARY_COLOR,
   },
 }

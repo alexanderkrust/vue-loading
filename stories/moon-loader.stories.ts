@@ -4,6 +4,7 @@ import { BASE_PRIMARY_COLOR, BASE_SIZE, BASE_SPEED } from '../packages/vue-loadi
 
 const meta = {
   title: 'MoonLoader',
+  // @ts-ignore
   component: MoonLoaderComp,
   argTypes: {
     class: { control: 'text' },

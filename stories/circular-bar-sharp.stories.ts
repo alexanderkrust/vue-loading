@@ -4,6 +4,7 @@ import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const
 
 const meta = {
   title: 'CircularBarSharp',
+  // @ts-ignore
   component: CircularBarSharpComp,
   argTypes: {
     class: { control: 'text' },

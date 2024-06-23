@@ -4,6 +4,7 @@ import { BASE_PRIMARY_COLOR, BASE_SECONDARY_COLOR, BASE_SIZE } from '../packages
 
 const meta = {
   title: 'BasicLoader',
+  // @ts-ignore
   component: BasicLoaderComp,
   argTypes: {
     class: { control: 'text' },
@@ -11,7 +12,6 @@ const meta = {
     primaryColor: { control: 'color' },
     secondaryColor: { control: 'color' },
   },
-
 } satisfies Meta<typeof BasicLoaderComp>
 
 export default meta
