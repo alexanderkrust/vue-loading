@@ -102,7 +102,7 @@ const { color } = props
 
 @-webkit-keyframes vl-bar-simple-animation {
   0% {
-    opacity: 0.85;
+    opacity: 1;
   }
 
   50% {
@@ -116,7 +116,7 @@ const { color } = props
 
 @keyframes vl-bar-simple-animation {
   0% {
-    opacity: 0.85;
+    opacity: 1;
   }
 
   50% {

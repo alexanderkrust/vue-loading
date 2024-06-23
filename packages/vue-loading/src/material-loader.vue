@@ -28,7 +28,6 @@ const { color } = props
 <template>
   <LoaderPrimitive
     :class="cn('vl-material-loader', $props.class as string)"
-    :style="$props.style"
     role="progress" aria-busy="true"
   />
 </template>

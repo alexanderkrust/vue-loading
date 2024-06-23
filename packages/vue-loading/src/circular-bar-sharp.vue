@@ -122,7 +122,7 @@ const { color } = props
 
   @-webkit-keyframes vl-bar-sharp-animation {
     0% {
-      opacity: 0.85;
+      opacity: 1;
     }
     50% {
       opacity: 0.25;
@@ -134,7 +134,7 @@ const { color } = props
 
   @keyframes vl-bar-sharp-animation {
     0% {
-      opacity: 0.85;
+      opacity: 1;
     }
     50% {
       opacity: 0.25;
