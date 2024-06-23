@@ -28,3 +28,7 @@ coverage
 
 # Storybook
 storybook-static
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
