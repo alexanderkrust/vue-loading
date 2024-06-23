@@ -4,13 +4,15 @@ on:
     branches:
       - main
     paths:
-      - 'packages/**'
-      - 'test/**'
+      - '!docs/**'
+      - '!.storybook/**'
+      - '!stories/**'
 
   pull_request:
     paths:
-      - 'packages/**'
-      - 'test/**'
+      - '!docs/**'
+      - '!.storybook/**'
+      - '!stories/**'
 
 jobs:
   test:
