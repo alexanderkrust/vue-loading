@@ -1,15 +1,15 @@
 import App from '@/App.vue'
 import { h } from 'vue'
-import { MaterialLoader } from 'vue-loading'
-import { BASE_PRIMARY_COLOR } from './const'
+import { CometLoader } from 'vue-loading'
 import { hexToRgb } from './utils/rgb-hex'
+import { BASE_PRIMARY_COLOR } from './const'
 
-describe('<MaterialLoader />', () => {
+describe('<CometLoader />', () => {
   it('should render the component with default props', () => {
     // @ts-expect-error -- don't know why this is throwing an error
     cy.mount(App, {
       slots: {
-        default: h(MaterialLoader),
+        default: h(CometLoader),
       },
     })
 
@@ -17,13 +17,10 @@ describe('<MaterialLoader />', () => {
       const styles = window.getComputedStyle(element[0])
       expect(styles.width).to.be.equal('44px')
       expect(styles.height).to.be.equal('44px')
+      expect(styles.borderRadius).to.be.equal('50%')
 
       const colorRGB = hexToRgb(BASE_PRIMARY_COLOR)
-      const circleElement = element[0].firstChild as HTMLElement
-      const circleStyles = window.getComputedStyle(circleElement)
-      expect(circleStyles.stroke).to.be.equal(colorRGB)
-
-      expect(circleStyles.strokeWidth).to.be.equal('4px')
+      expect(element.css('background')).includes(colorRGB)
     })
   })
 
@@ -34,7 +31,7 @@ describe('<MaterialLoader />', () => {
     // @ts-expect-error -- don't know why this is throwing an error
     cy.mount(App, {
       slots: {
-        default: h(MaterialLoader, {
+        default: h(CometLoader, {
           size,
           color,
         }),
@@ -45,14 +42,10 @@ describe('<MaterialLoader />', () => {
       const styles = window.getComputedStyle(element[0])
       expect(styles.width).to.be.equal('30px')
       expect(styles.height).to.be.equal('30px')
+      expect(styles.borderRadius).to.be.equal('50%')
 
       const colorRGB = hexToRgb(color)
-      const circleElement = element[0].firstChild as HTMLElement
-      const circleStyles = window.getComputedStyle(circleElement)
-      expect(circleStyles.stroke).to.be.equal(colorRGB)
-
-      const borderWidth = Math.floor(size / 8)
-      expect(circleStyles.strokeWidth).to.be.equal(`${borderWidth}px`)
+      expect(element.css('background')).includes(colorRGB)
     })
   })
 
@@ -60,8 +53,8 @@ describe('<MaterialLoader />', () => {
     // @ts-expect-error -- don't know why this is throwing an error
     cy.mount(App, {
       slots: {
-        default: h(MaterialLoader, {
-          class: 'w-6 h-6 [&>circle]:stroke-[6px]',
+        default: h(CometLoader, {
+          class: 'w-6 h-6',
         }),
       },
     })
@@ -70,11 +63,6 @@ describe('<MaterialLoader />', () => {
       const styles = window.getComputedStyle(element[0])
       expect(styles.width).to.be.equal('24px')
       expect(styles.height).to.be.equal('24px')
-
-      const circleElement = element[0].firstChild as HTMLElement
-      const circleStyles = window.getComputedStyle(circleElement)
-
-      expect(circleStyles.strokeWidth).to.be.equal('6px')
     })
   })
 })
