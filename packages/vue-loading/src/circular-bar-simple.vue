@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { PrimitiveProps } from 'radix-vue'
+import LoaderPrimitive from './loader-primitive.vue'
 
 interface CircularBarSimple extends PrimitiveProps {
   color?: string
@@ -22,10 +23,10 @@ const { color } = props
 </script>
 
 <template>
-  <div :class="cn('vl-circular-bar-simple', $props.class as string)">
-    <svg v-for="index in 8" :key="index" class="v-blade" viewBox="0 0 64 64">
-      <line transform="translate(32,32)" y1="14" y2="26" />
-    </svg>
+  <div :class="cn('vl-circular-bar-simple', $props.class as string)" role="progress" aria-busy="true">
+    <div class="vl-blades">
+      <div v-for="index in 8" :key="index" class="vl-blade" />
+    </div>
   </div>
 </template>
 
@@ -35,69 +36,72 @@ const { color } = props
   position: relative;
   width: v-bind(size);
   height: v-bind(size);
-  color: v-bind(color);
   user-select: none;
 }
 
-.vl-circular-bar-simple .v-blade {
+.vl-circular-bar-simple .vl-blades {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: v-bind(size);
+  height: v-bind(size);
+}
+
+.vl-circular-bar-simple .vl-blade {
   transform-origin: center center;
+  background: v-bind(color);
+  border-radius: 4px;
+  height: 11%;
+  left: -10%;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
+  top: -3.9%;
+  width: 29%;
   -webkit-animation: vl-bar-simple-animation 1s linear infinite;
   animation: vl-bar-simple-animation 1s linear infinite;
 }
 
-.vl-circular-bar-simple .v-blade line {
-  stroke-width: 7px;
-  stroke-linecap: round;
-  stroke: v-bind(color);
-}
-
-.vl-circular-bar-simple .v-blade {
+.vl-circular-bar-simple .vl-blade {
   animation-duration: 1000ms;
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(1) {
+.vl-circular-bar-simple .vl-blade:nth-child(1) {
   animation-delay: -500ms;
-  transform: rotate(0deg);
+  transform: rotate(0deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(2) {
+.vl-circular-bar-simple .vl-blade:nth-child(2) {
   animation-delay: -375ms;
-  transform: rotate(45deg);
+  transform: rotate(45deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(3) {
+.vl-circular-bar-simple .vl-blade:nth-child(3) {
   animation-delay: -250ms;
-  transform: rotate(90deg);
+  transform: rotate(90deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(4) {
+.vl-circular-bar-simple .vl-blade:nth-child(4) {
   animation-delay: -125ms;
-  transform: rotate(135deg);
+  transform: rotate(135deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(5) {
+.vl-circular-bar-simple .vl-blade:nth-child(5) {
   animation-delay: -1000ms;
-  transform: rotate(180deg);
+  transform: rotate(180deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(6) {
+.vl-circular-bar-simple .vl-blade:nth-child(6) {
   animation-delay: -875ms;
-  transform: rotate(225deg);
+  transform: rotate(225deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(7) {
+.vl-circular-bar-simple .vl-blade:nth-child(7) {
   animation-delay: -750ms;
-  transform: rotate(270deg);
+  transform: rotate(270deg) translate(107%);
 }
 
-.vl-circular-bar-simple .v-blade:nth-child(8) {
+.vl-circular-bar-simple .vl-blade:nth-child(8) {
   animation-delay: -625ms;
-  transform: rotate(315deg);
+  transform: rotate(315deg) translate(107%);
 }
 
 @-webkit-keyframes vl-bar-simple-animation {
