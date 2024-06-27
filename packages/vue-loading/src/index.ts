@@ -3,6 +3,7 @@ import MoonLoader from './moon-loader.vue'
 import MaterialLoader from './material-loader.vue'
 import CircularBarSharp from './circular-bar-sharp.vue'
 import CircularBarSimple from './circular-bar-simple.vue'
+import CometLoader from './comet-loader.vue'
 
 export {
   BasicLoader,
@@ -10,4 +11,5 @@ export {
   MaterialLoader,
   CircularBarSharp,
   CircularBarSimple,
+  CometLoader,
 }
