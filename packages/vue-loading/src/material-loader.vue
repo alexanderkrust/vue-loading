@@ -10,7 +10,6 @@ export interface MaterialLoaderProps extends LoaderPrimitiveProps {
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { cn } from './utils/cn'
-import LoaderPrimitive from './loader-primitive.vue'
 import { BASE_PRIMARY_COLOR, BASE_SIZE } from './const'
 
 const props = withDefaults(defineProps<MaterialLoaderProps>(), {
@@ -26,117 +25,94 @@ const { color } = props
 </script>
 
 <template>
-  <LoaderPrimitive
+  <svg
     :class="cn('vl-material-loader', $props.class as string)"
     role="progress" aria-busy="true"
-  />
+    viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle class="vl-material-loader-circle" fill="none" :stroke-width="border" cx="33" cy="33" r="30" />
+  </svg>
 </template>
 
 <style>
 .vl-material-loader {
   width: v-bind(css_width);
   height: v-bind(css_width);
-  border-color: v-bind(color);
-  border-width: v-bind(border);
-  border-style: solid;
-  border-radius: 50%;
-  animation: vl-path-animation 0.8s infinite linear alternate, vl-rotation-animation 1.6s infinite linear;
-  -webkit-animation: vl-path-animation 0.8s infinite linear alternate, vl-rotation-animation 1.6s infinite linear;
+  animation: vl-rotation-animation 1.35s linear infinite;
+  -webkit-animation: vl-rotation-animation 1.35s linear infinite;
 }
 
-@-webkit-keyframes vl-path-animation {
-   0% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
-   }
-
-   12.5% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
-   }
-
-   25% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
-   }
-
-   50% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
-   }
-
-   62.5% {
-      clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
-   }
-
-   75% {
-      clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
-   }
-
-   100% {
-      clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
-   }
-}
-
-@keyframes vl-path-animation {
-   0% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
-   }
-
-   12.5% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
-   }
-
-   25% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
-   }
-
-   50% {
-      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
-   }
-
-   62.5% {
-      clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
-   }
-
-   75% {
-      clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
-   }
-
-   100% {
-      clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
-   }
+.vl-material-loader > circle {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: turn 1.35s ease-in-out infinite;
+  animation: turn 1.35s ease-in-out infinite;
+  stroke: v-bind(color);
+  stroke-width: v-bind(border);
 }
 
 @-webkit-keyframes vl-rotation-animation {
    0% {
-      transform: scaleY(1) rotate(0deg);
-   }
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-   49.99% {
-      transform: scaleY(1) rotate(135deg);
-   }
-
-   50% {
-      transform: scaleY(-1) rotate(0deg);
-   }
-
-   100% {
-      transform: scaleY(-1) rotate(-135deg);
-   }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
 }
 
 @keyframes vl-rotation-animation {
    0% {
-      transform: scaleY(1) rotate(0deg);
-   }
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-   49.99% {
-      transform: scaleY(1) rotate(135deg);
-   }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
 
-   50% {
-      transform: scaleY(-1) rotate(0deg);
-   }
+@-webkit-keyframes turn
+{
+  0% {
+    stroke-dashoffset: 180;
+  }
 
-   100% {
-      transform: scaleY(-1) rotate(-135deg);
-   }
+  50% {
+    stroke-dashoffset: 45;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 180;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes turn
+{
+  0% {
+    stroke-dashoffset: 180;
+  }
+
+  50% {
+    stroke-dashoffset: 45;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 180;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
 }
 </style>

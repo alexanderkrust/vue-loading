@@ -11,7 +11,7 @@ export interface MoonLoaderProps extends LoaderPrimitiveProps {
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { cn } from './utils/cn'
-
+import LoaderPrimitive from './loader-primitive.vue'
 import { BASE_PRIMARY_COLOR, BASE_SIZE, BASE_SPEED } from './const'
 
 const props = withDefaults(defineProps<MoonLoaderProps>(), {
@@ -32,10 +32,14 @@ const { color } = props
 </script>
 
 <template>
-  <span :class="cn('vl-moon-spinner', $props.class as string)" role="progress" aria-busy="true">
+  <div
+    :class="cn('vl-moon-spinner', $props.class as string)"
+    role="progress"
+    aria-busy="true"
+  >
     <span class="vl-moon-ball" />
     <span class="vl-moon-circle" />
-  </span>
+  </div>
 </template>
 
 <style>
