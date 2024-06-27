@@ -1,26 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { CircularBarSharp as CircularBarSharpComp } from 'vue-loading'
+import { CometLoader as CometLoaderComp } from 'vue-loading'
 import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const'
 
 const meta = {
-  title: 'CircularBarSharp',
+  title: 'CometLoader',
   // @ts-ignore
-  component: CircularBarSharpComp,
+  component: CometLoaderComp,
   argTypes: {
     class: { control: 'text' },
     size: { control: 'number' },
     color: { control: 'color' },
+    thickness: { control: 'number' },
   },
-
-} satisfies Meta<typeof CircularBarSharpComp>
+} satisfies Meta<typeof CometLoaderComp>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const CircularBarSharp: Story = {
+export const CometLoader: Story = {
   args: {
     class: '',
-    size: 36,
+    size: BASE_SIZE,
     color: BASE_PRIMARY_COLOR,
   },
 }
