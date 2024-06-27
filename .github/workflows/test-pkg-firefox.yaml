@@ -53,7 +53,7 @@ jobs:
         id: cache-cypress-binary
         uses: actions/cache@v4
         with:
-          path: ~/.cache/Cypress
+          path: /home/runner/.cache/Cypress
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install dependencies
