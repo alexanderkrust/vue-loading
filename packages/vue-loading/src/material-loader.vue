@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { LoaderPrimitiveProps } from './types'
+import LoaderPrimitive from './loader-primitive.vue'
 
 export interface MaterialLoaderProps extends LoaderPrimitiveProps {
   color?: string
@@ -25,94 +26,68 @@ const { color } = props
 </script>
 
 <template>
-  <svg
+  <LoaderPrimitive
+    :as="$props.as as string ?? 'div'"
     :class="cn('vl-material-loader', $props.class as string)"
     role="progress" aria-busy="true"
-    viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle class="vl-material-loader-circle" fill="none" :stroke-width="border" cx="33" cy="33" r="30" />
-  </svg>
+  />
 </template>
 
 <style>
 .vl-material-loader {
   width: v-bind(css_width);
   height: v-bind(css_width);
-  animation: vl-rotation-animation 1.35s linear infinite;
-  -webkit-animation: vl-rotation-animation 1.35s linear infinite;
-}
-
-.vl-material-loader > circle {
-  stroke-dasharray: 180;
-  stroke-dashoffset: 0;
-  -webkit-transform-origin: center;
-  -ms-transform-origin: center;
-  transform-origin: center;
-  -webkit-animation: turn 1.35s ease-in-out infinite;
-  animation: turn 1.35s ease-in-out infinite;
-  stroke: v-bind(color);
-  stroke-width: v-bind(border);
-}
-
-@-webkit-keyframes vl-rotation-animation {
-   0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(270deg);
-    transform: rotate(270deg);
-  }
+  border-radius: 50%;
+  border-width: v-bind(border);
+  border-style: solid;
+  border-color: v-bind(color);
+  box-sizing: border-box;
+  -webkit-animation: vl-sweep-animation 1s linear alternate infinite, vl-rotation-animation 0.8s linear infinite;
+          animation: vl-sweep-animation 1s linear alternate infinite, vl-rotation-animation 0.8s linear infinite;
 }
 
 @keyframes vl-rotation-animation {
-   0% {
-    -webkit-transform: rotate(0deg);
+  from {
     transform: rotate(0deg);
   }
-
-  100% {
-    -webkit-transform: rotate(270deg);
-    transform: rotate(270deg);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-@-webkit-keyframes turn
-{
-  0% {
-    stroke-dashoffset: 180;
+@-webkit-keyframes vl-rotation-animation {
+  from {
+    -webkit-transform: rotate(0deg);
   }
-
-  50% {
-    stroke-dashoffset: 45;
-    -webkit-transform: rotate(135deg);
-    transform: rotate(135deg);
-  }
-
-  100% {
-    stroke-dashoffset: 180;
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg);
+  to {
+    -webkit-transform: rotate(360deg);
   }
 }
 
-@keyframes turn
-{
+@keyframes vl-sweep-animation {
   0% {
-    stroke-dashoffset: 180;
+    -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 50% 50%, 0% 0%, 0% 0%, 0% 0%);
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 50% 50%, 0% 0%, 0% 0%, 0% 0%);
   }
-
   50% {
-    stroke-dashoffset: 45;
-    -webkit-transform: rotate(135deg);
-    transform: rotate(135deg);
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 50% 50%, 100% 0%, 100% 0%, 0% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 50% 50%, 100% 0%, 100% 0%, 0% 0%);
   }
-
   100% {
-    stroke-dashoffset: 180;
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg);
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 50%, 100% 100%, 100% 0%, 0% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 50%, 100% 100%, 100% 0%, 0% 0%);
+  }
+}
+
+@-webkit-keyframes vl-sweep-animation {
+  0% {
+    -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 50% 50%, 0% 0%, 0% 0%, 0% 0%);
+  }
+  50% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 50% 50%, 100% 0%, 100% 0%, 0% 0%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 50% 50%, 100% 100%, 100% 0%, 0% 0%);
   }
 }
 </style>
