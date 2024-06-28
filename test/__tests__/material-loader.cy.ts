@@ -17,13 +17,9 @@ describe('<MaterialLoader />', () => {
       const styles = window.getComputedStyle(element[0])
       expect(styles.width).to.be.equal('44px')
       expect(styles.height).to.be.equal('44px')
-
+      expect(styles.borderWidth).to.be.equal('4px')
       const colorRGB = hexToRgb(BASE_PRIMARY_COLOR)
-      const circleElement = element[0].firstChild as HTMLElement
-      const circleStyles = window.getComputedStyle(circleElement)
-      expect(circleStyles.stroke).to.be.equal(colorRGB)
-
-      expect(circleStyles.strokeWidth).to.be.equal('4px')
+      expect(styles.borderColor).to.be.equal(colorRGB)
     })
   })
 
@@ -45,14 +41,9 @@ describe('<MaterialLoader />', () => {
       const styles = window.getComputedStyle(element[0])
       expect(styles.width).to.be.equal('30px')
       expect(styles.height).to.be.equal('30px')
-
+      expect(styles.borderWidth).to.be.equal('3px')
       const colorRGB = hexToRgb(color)
-      const circleElement = element[0].firstChild as HTMLElement
-      const circleStyles = window.getComputedStyle(circleElement)
-      expect(circleStyles.stroke).to.be.equal(colorRGB)
-
-      const borderWidth = Math.floor(size / 8)
-      expect(circleStyles.strokeWidth).to.be.equal(`${borderWidth}px`)
+      expect(styles.borderColor).to.be.equal(colorRGB)
     })
   })
 
@@ -61,7 +52,7 @@ describe('<MaterialLoader />', () => {
     cy.mount(App, {
       slots: {
         default: h(MaterialLoader, {
-          class: 'w-6 h-6 [&>circle]:stroke-[6px]',
+          class: 'w-6 h-6 border-2 border-slate-200',
         }),
       },
     })
@@ -71,10 +62,8 @@ describe('<MaterialLoader />', () => {
       expect(styles.width).to.be.equal('24px')
       expect(styles.height).to.be.equal('24px')
 
-      const circleElement = element[0].firstChild as HTMLElement
-      const circleStyles = window.getComputedStyle(circleElement)
-
-      expect(circleStyles.strokeWidth).to.be.equal('6px')
+      expect(styles.borderWidth).to.be.equal('2px')
+      expect(styles.borderColor).to.be.equal('rgb(226, 232, 240)')
     })
   })
 })
