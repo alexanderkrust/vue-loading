@@ -19,9 +19,6 @@ const props = withDefaults(defineProps<CirularBarSharp>(), {
 
 const css_size = computed(() => `${`${props.size}px`}`)
 const { color } = props
-
-// 8.633x2.156
-// 5.85x3.38
 </script>
 
 <template>
