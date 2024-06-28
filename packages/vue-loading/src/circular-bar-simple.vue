@@ -1,6 +1,5 @@
 <script lang="ts">
 import type { PrimitiveProps } from 'radix-vue'
-import LoaderPrimitive from './loader-primitive.vue'
 
 interface CircularBarSimple extends PrimitiveProps {
   color?: string
