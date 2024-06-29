@@ -12,6 +12,8 @@ on:
       - '!stories/**'
 
   pull_request:
+    branches:
+      - "*"
     paths:
       - '**'
       - '!docs/**'
