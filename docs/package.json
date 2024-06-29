@@ -12,7 +12,7 @@
   "dependencies": {
     "nuxt": "^3.12.2",
     "vue": "^3.4.27",
-    "vue-loading": "workspace:*",
+    "@alexanderkrust/vue-loading": "workspace:*",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {

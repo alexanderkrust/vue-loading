@@ -15,8 +15,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "vue": "^3.4.29",
-    "vue-loading": "workspace:*"
+    "@alexanderkrust/vue-loading": "workspace:*",
+    "vue": "^3.4.29"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",
