@@ -1,6 +1,6 @@
 import App from '@/App.vue'
 import { h } from 'vue'
-import { MoonLoader } from 'vue-loading'
+import { MoonLoader } from '@alexanderkrust/vue-loading'
 import { BASE_PRIMARY_COLOR, BASE_SIZE } from './const'
 import { hexToRgb } from './utils/rgb-hex'
 

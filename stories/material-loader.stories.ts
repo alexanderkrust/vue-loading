@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { MaterialLoader as MaterialLoaderComp } from 'vue-loading'
+import { MaterialLoader as MaterialLoaderComp } from '@alexanderkrust/vue-loading'
 import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const'
 
 const meta = {

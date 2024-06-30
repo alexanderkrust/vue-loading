@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { CometLoader as CometLoaderComp } from 'vue-loading'
+import { CometLoader as CometLoaderComp } from '@alexanderkrust/vue-loading'
 import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const'
 
 const meta = {

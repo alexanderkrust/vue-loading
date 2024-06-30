@@ -1,6 +1,6 @@
 import App from '@/App.vue'
 import { h } from 'vue'
-import { MaterialLoader } from 'vue-loading'
+import { MaterialLoader } from '@alexanderkrust/vue-loading'
 import { BASE_PRIMARY_COLOR } from './const'
 import { hexToRgb } from './utils/rgb-hex'
 

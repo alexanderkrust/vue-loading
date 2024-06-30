@@ -1,6 +1,6 @@
 import App from '@/App.vue'
 import { h } from 'vue'
-import { CometLoader } from 'vue-loading'
+import { CometLoader } from '@alexanderkrust/vue-loading'
 import { hexToRgb } from './utils/rgb-hex'
 import { BASE_PRIMARY_COLOR } from './const'
 

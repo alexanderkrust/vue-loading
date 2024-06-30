@@ -1,6 +1,6 @@
 import App from '@/App.vue'
 import { h } from 'vue'
-import { CircularBarSimple } from 'vue-loading'
+import { CircularBarSimple } from '@alexanderkrust/vue-loading'
 
 describe('<CircularBarSimple />', () => {
   it('should render the component with default props', () => {
