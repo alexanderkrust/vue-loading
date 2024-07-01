@@ -42,7 +42,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",
     "@nuxt/kit": "^3.12.2",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.9",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
