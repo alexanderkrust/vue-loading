@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import '@alexanderkrust/vue-loading/index.css'
-import { BasicLoader, MaterialLoader, MoonLoader, CircularBarSharp, CircularBarSimple } from '@alexanderkrust/vue-loading'
+import { BasicLoader, CircularBarSharp, CircularBarSimple, MaterialLoader, MoonLoader } from '@alexanderkrust/vue-loading'
 
 const generateCodeSnippet = (componentName: string) => {
   return `
