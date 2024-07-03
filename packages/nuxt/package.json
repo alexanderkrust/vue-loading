@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-module",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Vue Loading for Nuxt",
+  "license": "MIT",
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint .",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@alexanderkrust/vue-loading": "workspace:*",
+    "@nuxt/kit": "^3.12.2"
+  },
+  "devDependencies": {
+    "@nuxt/schema": "^3.12.2",
+    "@types/node": "^20.14.9",
+    "typescript": "latest",
+    "unbuild": "^2.0.0",
+    "vue-tsc": "^2.0.24"
+  }
+}

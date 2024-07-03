@@ -5,9 +5,7 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "sideEffects": [
-    "./**/*.css"
-  ],
+  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
@@ -20,6 +18,11 @@
     "./index.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
+    },
+    "./nuxt": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
     }
   },
   "main": "./dist/index.umd.js",
@@ -28,7 +31,8 @@
   "typings": "./dist/index.d.ts",
   "files": [
     "./LICENSE",
-    "./dist"
+    "./dist",
+    "README.md"
   ],
   "scripts": {
     "build": "rimraf ./dist && vite build && vue-tsc --declaration --emitDeclarationOnly",
@@ -40,13 +44,11 @@
     "vue": ">= 3.4.27"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.20.0",
     "@nuxt/kit": "^3.12.2",
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
-    "eslint": "^9.4.0",
     "nodemon": "^3.1.4",
     "postcss": "^8.4.38",
     "radix-vue": "^1.8.3",
