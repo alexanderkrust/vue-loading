@@ -14,7 +14,7 @@
     "docs:dev": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
     "test:components:watch": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"pnpm test:package\"",
     "storybook": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"storybook dev -p 6006\"",
-    "build-storybook": "pnpm build:package && storybook build",
+    "build-storybook": "storybook build",
     "release": "pnpm changeset publish",
     "prepare": "husky"
   },
