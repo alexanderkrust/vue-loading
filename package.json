@@ -10,7 +10,7 @@
     "build:nuxt-module": "cd packages/nuxt && pnpm build",
     "build:package": "pnpm build:components && pnpm build:nuxt-module",
     "test:package": "cd test && pnpm test:unit",
-    "build:docs": "pnpm build:package && cd docs && pnpm build",
+    "build:docs": "cd docs && pnpm build",
     "docs:dev": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
     "test:components:watch": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"pnpm test:package\"",
     "storybook": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"storybook dev -p 6006\"",
