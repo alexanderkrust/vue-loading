@@ -5,7 +5,6 @@
 ### Minor Changes
 
 - b653735: Add nuxt module support
-- b8b7fee: Add nuxt module support
 
 ## 1.0.0
 
