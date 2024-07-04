@@ -4,6 +4,7 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "repository": "git://github.com/alexanderkrust/vue-loading.git",
   "keywords": [],
   "sideEffects": false,
   "publishConfig": {
