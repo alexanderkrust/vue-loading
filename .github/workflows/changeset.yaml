@@ -1,11 +1,11 @@
 name: Release
+
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: read
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -14,11 +14,6 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,8 +45,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --ignore-scripts
 
-      - name: Release
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: pnpm version:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx semantic-release
+

@@ -11,11 +11,12 @@
     "build:package": "pnpm build:components && pnpm build:nuxt-module",
     "test:package": "cd test && pnpm test:unit",
     "build:docs": "cd docs && pnpm build",
-    "docs:dev": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
+    "docs:dev": "pnpm build:package && concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
     "test:components:watch": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"pnpm test:package\"",
     "storybook": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"storybook dev -p 6006\"",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "version:publish": "pnpm changeset publish"
   },
   "dependencies": {
     "@alexanderkrust/vue-loading": "workspace:*",
@@ -36,8 +37,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",
-    "@semantic-release/github": "^10.0.7",
-    "@semantic-release/npm": "^12.0.1",
+    "@changesets/cli": "^2.27.7",
     "concurrently": "^8.2.2",
     "eslint": "^9.4.0",
     "tailwindcss": "^3.4.4"
