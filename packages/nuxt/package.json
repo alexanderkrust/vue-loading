@@ -2,6 +2,7 @@
   "name": "nuxt-module",
   "type": "module",
   "version": "1.0.0",
+  "private": true,
   "description": "Vue Loading for Nuxt",
   "license": "MIT",
   "scripts": {
