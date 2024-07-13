@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { BasicLoader as BasicLoaderComp } from '@alexanderkrust/vue-loading'
-import { BASE_PRIMARY_COLOR, BASE_SECONDARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const'
+import { BASE_PRIMARY_COLOR, BASE_SECONDARY_COLOR, BASE_SIZE } from '../../packages/vue-loading/src/const'
 
 const meta = {
   title: 'BasicLoader',

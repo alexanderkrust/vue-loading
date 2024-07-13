@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { MoonLoader as MoonLoaderComp } from '@alexanderkrust/vue-loading'
-import { BASE_PRIMARY_COLOR, BASE_SIZE, BASE_SPEED } from '../packages/vue-loading/src/const'
+import { BASE_PRIMARY_COLOR, BASE_SIZE, BASE_SPEED } from '../../packages/vue-loading/src/const'
 
 const meta = {
   title: 'MoonLoader',

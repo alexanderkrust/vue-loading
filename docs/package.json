@@ -3,16 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build:package": "cd ../ && pnpm build:package:nc && cd docs",
+    "build": "pnpm build:package && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "pnpm build:package && nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.12.2",
-    "vue": "^3.4.27",
     "@alexanderkrust/vue-loading": "workspace:*",
+    "nuxt-module": "workspace:*",
+    "nuxt": "^3.12.2",
+    "radix-vue": "^1.8.3",
+    "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {

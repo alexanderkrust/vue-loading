@@ -7,40 +7,34 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "build:components": "cd packages/vue-loading && pnpm build",
-    "build:nuxt-module": "cd packages/nuxt && pnpm build",
+    "build:components": "pnpm turbo run build --filter=@alexanderkrust/vue-loading",
+    "build:components:nc": "pnpm turbo run build --no-cache --force --filter=@alexanderkrust/vue-loading",
+    "build:nuxt-module": "pnpm turbo run build --filter=nuxt-module",
+    "build:nuxt-module:nc": "pnpm turbo run build --no-cache --force --filter=nuxt-module",
+    "build:package:nc": "pnpm build:components:nc && pnpm build:nuxt-module:nc",
     "build:package": "pnpm build:components && pnpm build:nuxt-module",
-    "test:package": "cd test && pnpm test:unit",
-    "build:docs": "cd docs && pnpm build",
-    "docs:dev": "pnpm build:package && concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"cd docs && pnpm dev\"",
+    "test:package": "pnpm turbo run test:unit",
+    "build:docs": "pnpm turbo run build --filter=docs",
+    "docs:dev": "pnpm turbo run dev --filter=!test --filter=!storybook",
     "test:components:watch": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"pnpm test:package\"",
-    "storybook": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"storybook dev -p 6006\"",
-    "build-storybook": "storybook build",
+    "dev:storybook": "pnpm turbo run dev --filter=storybook",
+    "build:storybook": "pnpm turbo run build --filter=storybook",
     "prepare": "husky",
     "version:publish": "pnpm changeset publish"
   },
   "dependencies": {
-    "@alexanderkrust/vue-loading": "workspace:*",
-    "@chromatic-com/storybook": "^1.6.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@storybook/addon-essentials": "^8.1.11",
-    "@storybook/addon-interactions": "^8.1.11",
-    "@storybook/addon-links": "^8.1.11",
-    "@storybook/blocks": "^8.1.11",
-    "@storybook/test": "^8.1.11",
-    "@storybook/vue3": "^8.1.11",
-    "@storybook/vue3-vite": "^8.1.11",
     "eslint": "^9.6.0",
     "husky": "^9.0.11",
-    "storybook": "^8.1.11",
     "typescript": "^5.5.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",
     "@changesets/cli": "^2.27.7",
-    "concurrently": "^8.2.2",
     "eslint": "^9.4.0",
-    "tailwindcss": "^3.4.4"
-  }
+    "tailwindcss": "^3.4.4",
+    "turbo": "^2.0.6"
+  },
+  "packageManager": "pnpm@8.15.5"
 }

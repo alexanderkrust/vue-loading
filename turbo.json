@@ -1,0 +1,70 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "@nuxt-module#dev": {
+      "dependsOn": [
+        "@alexanderkrust/vue-loading#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ],
+      "persistent": true,
+      "cache": false
+    },
+    "docs#dev": {
+      "dependsOn": [
+        "@alexanderkrust/vue-loading#build",
+        "nuxt-module#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ],
+      "persistent": true,
+      "cache": false
+    },
+    "docs#postinstall": {
+      "dependsOn": [
+        "@alexanderkrust/vue-loading#build",
+        "nuxt-module#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ],
+      "cache": false
+    },
+    "test:unit": {
+      "dependsOn": [
+        "@alexanderkrust/vue-loading#build",
+        "nuxt-module#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "storybook#dev": {
+      "dependsOn": [
+        "@alexanderkrust/vue-loading#build",
+        "nuxt-module#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ],
+      "persistent": true,
+      "cache": false
+    },
+    "storybook#build": {
+      "dependsOn": [
+        "@alexanderkrust/vue-loading#build",
+        "nuxt-module#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    }
+  }
+}

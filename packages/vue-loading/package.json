@@ -37,8 +37,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "dev": "nodemon --watch src --ext vue,css,ts --exec \"pnpm build && cd ../nuxt && pnpm build\"",
+    "build": "rimraf ./dist && vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "dev": "nodemon --watch src --ext vue,css,ts --exec \"pnpm build\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

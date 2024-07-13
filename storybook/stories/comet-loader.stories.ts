@@ -1,23 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { MaterialLoader as MaterialLoaderComp } from '@alexanderkrust/vue-loading'
-import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../packages/vue-loading/src/const'
+import { CometLoader as CometLoaderComp } from '@alexanderkrust/vue-loading'
+import { BASE_PRIMARY_COLOR, BASE_SIZE } from '../../packages/vue-loading/src/const'
 
 const meta = {
-  title: 'MaterialLoader',
+  title: 'CometLoader',
   // @ts-ignore
-  component: MaterialLoaderComp,
+  component: CometLoaderComp,
   argTypes: {
     class: { control: 'text' },
     size: { control: 'number' },
     color: { control: 'color' },
+    thickness: { control: 'number' },
   },
-
-} satisfies Meta<typeof MaterialLoaderComp>
+} satisfies Meta<typeof CometLoaderComp>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const MaterialLoader: Story = {
+export const CometLoader: Story = {
   args: {
     class: '',
     size: BASE_SIZE,

@@ -32,3 +32,6 @@ storybook-static
 # Cypress
 /cypress/videos/
 /cypress/screenshots/
+
+# Turbo
+.turbo

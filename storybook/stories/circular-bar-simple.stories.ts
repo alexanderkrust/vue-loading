@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { CircularBarSimple as CircularBarSimpleComp } from '@alexanderkrust/vue-loading'
-import { BASE_PRIMARY_COLOR } from '../packages/vue-loading/src/const'
+import { BASE_PRIMARY_COLOR } from '../../packages/vue-loading/src/const'
 
 const meta = {
   title: 'CircularBarSimple',
