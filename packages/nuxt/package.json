@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@nuxt/schema": "^3.12.2",
-    "@types/node": "^20.14.9",
+    "@types/node": "^20.14.10",
     "typescript": "latest",
     "unbuild": "^2.0.0",
     "vue-tsc": "^2.0.24"
