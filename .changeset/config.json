@@ -9,6 +9,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "test",
-    "nuxt-module"
+    "nuxt-module",
+    "docs"
   ]
 }
