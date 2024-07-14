@@ -147,6 +147,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.12.2
         version: 3.12.2(magicast@0.3.4)
+      nuxt-module:
+        specifier: workspace:*
+        version: link:../packages/nuxt
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^8.1.11
