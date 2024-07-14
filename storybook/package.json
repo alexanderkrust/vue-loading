@@ -9,10 +9,10 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.12.2"
+    "@nuxt/kit": "^3.12.2",
+    "@alexanderkrust/vue-loading": "workspace:*"
   },
   "devDependencies": {
-    "@alexanderkrust/vue-loading": "workspace:*",
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",

@@ -141,13 +141,13 @@ importers:
 
   storybook:
     dependencies:
+      '@alexanderkrust/vue-loading':
+        specifier: workspace:*
+        version: link:../packages/vue-loading
       '@nuxt/kit':
         specifier: ^3.12.2
         version: 3.12.2(magicast@0.3.4)
     devDependencies:
-      '@alexanderkrust/vue-loading':
-        specifier: workspace:*
-        version: link:../packages/vue-loading
       '@storybook/addon-essentials':
         specifier: ^8.1.11
         version: 8.2.2(storybook@8.2.2)
