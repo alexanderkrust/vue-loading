@@ -15,7 +15,7 @@
     "build:package": "pnpm build:components && pnpm build:nuxt-module",
     "test:package": "pnpm turbo run test:unit",
     "build:docs": "pnpm turbo run build --filter=docs",
-    "docs:dev": "pnpm turbo run dev --filter=!test --filter=!vue-loading-storybook",
+    "dev:docs": "pnpm turbo run dev --filter=!test --filter=!vue-loading-storybook",
     "test:components:watch": "concurrently --kill-others \"cd packages/vue-loading && pnpm dev\" \"pnpm test:package\"",
     "dev:storybook": "pnpm turbo run dev --filter=vue-loading-storybook",
     "build:storybook": "pnpm turbo run build --filter=vue-loading-storybook",

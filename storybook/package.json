@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.2",
-    "@alexanderkrust/vue-loading": "workspace:*"
+    "@alexanderkrust/vue-loading": "workspace:*",
+    "nuxt-module": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.1.11",
