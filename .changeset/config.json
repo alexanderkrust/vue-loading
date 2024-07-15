@@ -10,6 +10,7 @@
   "ignore": [
     "test",
     "nuxt-module",
-    "docs"
+    "docs",
+    "vue-loading-storybook"
   ]
 }
