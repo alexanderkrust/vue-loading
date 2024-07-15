@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BasicLoader, CircularBarSharp, CircularBarSimple, MaterialLoader, MoonLoader } from '@alexanderkrust/vue-loading'
+import { BasicLoader, CircularBarSharp, CircularBarSimple, MaterialLoader, MoonLoader, CometLoader } from '@alexanderkrust/vue-loading'
 
 const generateCodeSnippet = (componentName: string) => {
   return `
@@ -7,11 +7,13 @@ const generateCodeSnippet = (componentName: string) => {
   `
 }
 
+const packageName = `@alexanderkrust/vue-loading`
+
 const loaderDefinition = {
   basic: {
     component: BasicLoader,
     name: 'BasicLoader',
-    importSnippet: `import { BasicLoader } from 'vue-loading'`,
+    importSnippet: `import { BasicLoader } from '${packageName}'`,
     codeSnippet: generateCodeSnippet('BasicLoader'),
     props: [
       { name: 'primaryColor', type: 'string' },
@@ -24,7 +26,7 @@ const loaderDefinition = {
   material: {
     component: MaterialLoader,
     name: 'MaterialLoader',
-    importSnippet: `import { MaterialLoader } from 'vue-loading'`,
+    importSnippet: `import { MaterialLoader } from '${packageName}'`,
     codeSnippet: generateCodeSnippet('MaterialLoader'),
     props: [
       { name: 'color', type: 'string' },
@@ -36,7 +38,7 @@ const loaderDefinition = {
   moon: {
     component: MoonLoader,
     name: 'MoonLoader',
-    importSnippet: `import { MoonLoader } from 'vue-loading'`,
+    importSnippet: `import { MoonLoader } from '${packageName}'`,
     codeSnippet: generateCodeSnippet('MoonLoader'),
     props: [
       { name: 'color', type: 'string' },
@@ -46,11 +48,24 @@ const loaderDefinition = {
       { name: 'as', type: 'AsTag | Component'}
     ]
   },
-  circularBar: {
-    component: CircularBarSharp,
-    name: 'CircularBarSharp',
-    importSnippet: `import { CircularBarSharp } from 'vue-loading'`,
-    codeSnippet: generateCodeSnippet('CircularBarSharp'),
+  moon: {
+    component: MoonLoader,
+    name: 'MoonLoader',
+    importSnippet: `import { MoonLoader } from '${packageName}'`,
+    codeSnippet: generateCodeSnippet('MoonLoader'),
+    props: [
+      { name: 'color', type: 'string' },
+      { name: 'size', type: 'number' },
+      { name: 'speed', type: 'number' },
+      { name: 'asChild', type: 'boolean' },
+      { name: 'as', type: 'AsTag | Component'}
+    ]
+  },
+  comet: {
+    component: CometLoader,
+    name: 'CometLoader',
+    importSnippet: `import { CometLoader } from '${packageName}'`,
+    codeSnippet: generateCodeSnippet('CometLoader'),
     props: [
       { name: 'color', type: 'string' },
       { name: 'size', type: 'number' },
@@ -58,10 +73,10 @@ const loaderDefinition = {
       { name: 'as', type: 'AsTag | Component'}
     ]
   },
-  "ios-spinner-simple": {
+  circularBarSimple: {
     component: CircularBarSimple,
     name: 'CircularBarSimple',
-    importSnippet: `import { CircularBarSimple } from 'vue-loading'`,
+    importSnippet: `import { CircularBarSimple } from '${packageName}'`,
     codeSnippet: generateCodeSnippet('CircularBarSimple'),
     props: [
       { name: 'color', type: 'string' },

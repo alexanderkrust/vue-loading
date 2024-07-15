@@ -17,7 +17,12 @@
         ".output/**",
         "storybook-static/**"
       ],
-      "persistent": true,
+      "cache": false
+    },
+    "@alexanderkrust/vue-loading#dev": {
+      "outputs": [
+        "dist/**"
+      ],
       "cache": false
     },
     "@nuxt-module#dev": {
@@ -29,20 +34,15 @@
         ".output/**",
         "storybook-static/**"
       ],
-      "persistent": true,
       "cache": false
     },
     "docs#dev": {
-      "dependsOn": [
-        "@alexanderkrust/vue-loading#build",
-        "nuxt-module#build"
-      ],
       "outputs": [
         "dist/**",
         ".output/**",
         "storybook-static/**"
       ],
-      "persistent": true,
+
       "cache": false
     },
     "docs#postinstall": {
@@ -77,7 +77,7 @@
         ".output/**",
         "storybook-static/**"
       ],
-      "persistent": true,
+
       "cache": false
     },
     "storybook#build": {
