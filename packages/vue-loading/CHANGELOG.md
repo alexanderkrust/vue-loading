@@ -1,5 +1,11 @@
 # vue-loading
 
+## 1.1.1
+
+### Patch Changes
+
+- c955c59: Fix build
+
 ## 1.1.0
 
 ### Minor Changes
