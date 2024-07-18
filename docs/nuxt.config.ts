@@ -12,5 +12,10 @@ export default defineNuxtConfig({
   },
   experimental: {
     externalVue: false
-  }
+  },
+  vite: {
+    resolve: {
+      dedupe: ['vue'],
+    },
+  },
 })
