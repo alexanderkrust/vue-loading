@@ -1,5 +1,11 @@
 # vue-loading
 
+## 1.1.2
+
+### Patch Changes
+
+- d834b39: add build output
+
 ## 1.1.1
 
 ### Patch Changes
