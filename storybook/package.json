@@ -9,7 +9,7 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.12.2",
+    "@nuxt/kit": "^3.12.4",
     "@alexanderkrust/vue-loading": "workspace:*",
     "nuxt-module": "workspace:*"
   },
